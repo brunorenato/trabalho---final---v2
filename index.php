@@ -57,7 +57,8 @@ if(empty($_SESSION["userlogin"])) {
 	echo '  <h1>TRABALHO FINAL</h1>';
 	echo '  <br />';
 	echo '  <div>';
-		echo '<h2>Bem-Vindo '.$_SESSION['user_first_name'].' </h2>';
+	$user = $_SESSION["userlogin"];
+	echo "<h2>Bem-Vindo(a) {$user->getNickName()} </h2>";
 		echo'<form id="meuForm" action="http://localhost:8001/produtos/add" onsubmit="return validarForm()" method="POST">';
 			echo'<h3>Formulário de Cadastro:</h3><br>';
 				echo'Produto: <input type="text" placeholder="nome ou marca..." name="produto" id="txtProduto"><br>';
@@ -75,7 +76,7 @@ if(empty($_SESSION["userlogin"])) {
 							echo'<th>Produto</th>';
 							echo'<th>Preço</th>';
 						echo'</tr>';
-					echo'</thead>';
+				echo'</thead>';
 				echo'<tbody id="tabela">';
 				echo'</tbody>';
 			echo'</table>';
